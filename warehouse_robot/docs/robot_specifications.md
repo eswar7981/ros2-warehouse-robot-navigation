@@ -1,5 +1,5 @@
 WareHouse Robot Specifications: 
-  1. Chasis:
+  1. Chassis:
       1. length: 600 mm
       2. width: 400 mm
       3. height: 150 mm
@@ -9,8 +9,8 @@ WareHouse Robot Specifications:
       2. width: 40  mm
       3. mass: 0.5 kg
       4. configuration: 
-      5. seperation: 300
- 3. Castor Wheel:
+      5. seperation from center: 220 mm
+ 3. Caster Wheel:
      1. radius: 40 mm
      2. mass: 0.8 kg
  4. Lidar 

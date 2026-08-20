@@ -1,0 +1,54 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <material name="purple">
+    <color rgba="0.42 0.17 0.78 0.8" />
+  </material>
+
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1" />
+  </material>
+
+  <xacro:property name="chassis_length" value="0.6" />
+  <xacro:property name="chassis_width" value="0.4" />
+  <xacro:property name="chassis_height" value="0.15" />
+  <xacro:property name="chassis_mass" value="10" />
+  <xacro:property name="wheel_radius" value="0.1" />
+  <xacro:property name="wheel_length" value="0.04" />
+  <xacro:property name="wheel_mass" value="0.5" />
+  <xacro:property name="wheel_seperation_from_center" value="0.22" />
+  <xacro:property name="caster_wheel_radius" value="0.04" />
+
+  <xacro:macro name="box_inertia" params="m x y z origin_xyz origin_rpy">
+    <inertial>
+      <mass value="${m}" />
+      <origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
+      <inertia ixx="${(m/12)*(y*y+z*z)}" ixy="0.0" ixz="0.0"
+        iyy="${(m/12)*(z*z+x*x)}" iyz="0.0"
+        izz="${(m/12)*(x*x+y*y)}"
+      />
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="cylinder_inertia" params="m r h origin_xyz origin_rpy">
+    <inertial>
+      <mass value="${m}" />
+      <origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
+      <inertia ixx="${(m/12)*(3*(r*r)+h*h)}" ixy="0.0" ixz="0.0"
+        iyy="${(m/12)*(3*(r*r)+h*h)}" iyz="0.0"
+        izz="${(m/2)*(r*r)}"
+      />
+    </inertial>
+  </xacro:macro>
+
+  <xacro:macro name="sphere_inertia" params="m r origin_xyz origin_rpy">
+    <inertial>
+      <mass value="${m}" />
+      <origin xyz="${origin_xyz}" rpy="${origin_rpy}" />
+      <inertia ixx="${0.4*m*(r*r)}" ixy="0.0" ixz="0.0"
+        iyy="${0.4*m*(r*r)}" iyz="0.0"
+        izz="${0.4*m*(r*r)}"
+      />
+    </inertial>
+  </xacro:macro>
+
+</robot>
