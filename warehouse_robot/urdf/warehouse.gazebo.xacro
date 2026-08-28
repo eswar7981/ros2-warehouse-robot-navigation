@@ -1,0 +1,5 @@
+<gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find warehouse_robot)/config/diff_control_drive.yaml</parameters>
+    </plugin>
+</gazebo>

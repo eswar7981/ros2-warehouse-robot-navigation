@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <material name="purple">
-    <color rgba="0.42 0.17 0.78 0.8" />
+  <material name="blue">
+    <color rgba="0.157 0.353 0.627 1.0"/>
   </material>
 
   <material name="grey">

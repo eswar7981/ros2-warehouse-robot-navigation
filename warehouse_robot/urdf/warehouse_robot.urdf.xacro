@@ -3,5 +3,11 @@
 
   <xacro:include filename="common_properties.xacro" />
   <xacro:include filename="mobile_base.xacro" />
+  <xacro:include filename="warehouse_robot.control.xacro" />
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(find warehouse_robot)/config/diff_control_drive.yaml</parameters>
+    </plugin>
+  </gazebo>
 
 </robot>
