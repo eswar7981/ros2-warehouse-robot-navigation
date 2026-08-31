@@ -80,6 +80,22 @@
             origin_xyz="0 0 0" origin_rpy="0 0 0" />
     </link>
 
+    <link name="lidar_link">
+        <visual>
+            <geometry>
+                <cylinder radius="${lidar_radius}" length="${lidar_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="black" />
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="${caster_wheel_radius}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+    </link>
+
     <gazebo reference="caster_wheel_link">
         <mu1>0.0</mu1>
         <mu2>0.0</mu2>
@@ -113,6 +129,12 @@
         <origin
             xyz="${chassis_length/4} 0 -${chassis_height/2 + wheel_radius - caster_wheel_radius}"
             rpy="0 0 0" />
+    </joint>
+
+    <joint name="base_lidar_link" type="fixed">
+        <parent link="base_link" />
+        <child link="lidar_link" />
+        <origin xyz="${chassis_length/4} 0 ${chassis_height/2}" rpy="0 0 0"></origin>
     </joint>
 
 </robot>

@@ -4,10 +4,41 @@
   <xacro:include filename="common_properties.xacro" />
   <xacro:include filename="mobile_base.xacro" />
   <xacro:include filename="warehouse_robot.control.xacro" />
+
   <gazebo>
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
       <parameters>$(find warehouse_robot)/config/diff_control_drive.yaml</parameters>
     </plugin>
   </gazebo>
+
+  <gazebo reference="lidar_link">
+    <sensor name="lidar_sensor" type="gpu_lidar">
+        <pose>0 0 0 0 0 0</pose>
+        <frame_id>lidar_link</frame_id>
+        <gz_frame_id>lidar_link</gz_frame_id>
+        <topic>scan</topic>
+        <update_rate>10</update_rate>
+
+        <lidar>
+            <scan>
+                <horizontal>
+                    <samples>360</samples>
+                    <resolution>1</resolution>
+                    <min_angle>-${pi}</min_angle>
+                    <max_angle>${pi}</max_angle>
+                </horizontal>
+            </scan>
+
+            <range>
+                <min>0.10</min>
+                <max>12.0</max>
+                <resolution>0.01</resolution>
+            </range>
+        </lidar>
+
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+    </sensor>
+</gazebo>
 
 </robot>

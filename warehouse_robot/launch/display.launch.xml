@@ -47,4 +47,11 @@
           args="diff_drive_base_controller"
           output="screen" />
 
+     <node pkg="ros_gz_bridge"
+           exec="parameter_bridge"
+           name="lidar_bridge"
+           args="/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
+           output="screen">
+     </node>
+
 </launch>
