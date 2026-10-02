@@ -54,24 +54,7 @@ The robot is a differential-drive mobile robot equipped with a LiDAR sensor. The
 
 ---
 
-## 1. Project Structure
-
-The repository is organized as a ROS 2 workspace:
-
-
-ros2-warehouse-robot-navigation/
-└── src/
-    └── warehouse_robot/
-        ├── config/
-        ├── launch/
-        ├── maps/
-        ├── rviz/
-        ├── urdf/
-        ├── worlds/
-        ├── CMakeLists.txt
-        └── package.xml
-
-## 2. Requirements
+## 1. Requirements
 
 The project was developed using:
 
@@ -86,7 +69,7 @@ Make sure ROS 2 Jazzy is installed and sourced.
 source /opt/ros/jazzy/setup.bash
 ```
 
-## 3. Clone the Repository
+## 2. Clone the Repository
 
 Clone the repository:
 ```bash
@@ -106,7 +89,7 @@ Check the package:
 ls src/warehouse_robot
 ```
 
-## 4. Install Dependencies
+## 3. Install Dependencies
 
 From the workspace root:
 ```bash
@@ -118,7 +101,7 @@ rosdep install --from-paths src --ignore-src -r -y
 ```
 This installs ROS dependencies required by the packages in the workspace.
 
-## 5. Build the Workspace
+## 4. Build the Workspace
 
 Source ROS 2:
 ```bash
@@ -139,7 +122,7 @@ ros2 pkg list | grep warehouse_robot
 Expected output:
 
 warehouse_robot
-## 6. Start the Simulation
+## 5. Start the Simulation
 
 Launch the warehouse robot simulation:
 ```bash
